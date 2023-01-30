@@ -1,11 +1,11 @@
 /*-- VARIABLES ENVIRONMENT and DATABASE --*/
 SET V_ENV_NAME='{replace_with_v_env_name}';
-SET V_DATA_ENGINEER_ROLE=concat('data_engineer_role',$V_ENV_NAME);
-SET V_DB_NAME=concat('clean_db',$V_ENV_NAME);
+-- SET V_DATA_ENGINEER_ROLE=concat('data_engineer_role',$V_ENV_NAME);
+-- SET V_DB_NAME=concat('clean_db',$V_ENV_NAME);
 
 /*-- SCHEMA CONTEXT --*/
-USE ROLE identifier($V_DATA_ENGINEER_ROLE);
-USE DATABASE identifier($V_DB_NAME);
+USE ROLE data_engineer_role; -- identifier($V_DATA_ENGINEER_ROLE);
+USE DATABASE clean_db; -- identifier($V_DB_NAME);
 USE SCHEMA sbca;
 
 CREATE TABLE IF NOT EXISTS SBCA_UK_COUNTRIES (
@@ -26,6 +26,6 @@ CREATE TABLE IF NOT EXISTS SBCA_UK_COUNTRIES (
 );
 
 /*-- REMOVE VARIABLES ENVIRONMENT and DATABASE --*/
-unset v_env_name;
-unset v_db_name;
-UNSET v_data_engineer_role;
+-- unset v_env_name;
+-- unset v_db_name;
+-- UNSET v_data_engineer_role;
